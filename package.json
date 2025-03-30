@@ -2,12 +2,30 @@
   "name": "miniape",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "./dist/miniape.js",
+  "exports": {
+    ".": {
+      "import": "./dist/miniape.js",
+      "require": "./dist/miniape.cjs"
+    }
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "phylogenetics",
+    "ape",
+    "newick",
+    "tree",
+    "evolution"
+  ],
+  "author": "Tianjian Qin",
   "license": "GPL-2.0-only",
-  "description": ""
+  "description": "Minimal JavaScript port of APE (R) for phylogenetic tree manipulation",
+  "devDependencies": {
+    "rollup": "^2.79.2",
+    "rollup-plugin-terser": "^7.0.2"
+  }
 }
